@@ -40,6 +40,7 @@ GEM
     binding_of_caller (0.7.3.pre1)
       debug_inspector (>= 0.0.1)
     bson (2.3.0)
+    bson_ext (1.5.1)
     builder (3.2.2)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -161,6 +162,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bson_ext
   byebug
   coffee-rails (~> 4.0.0)
   jbuilder (~> 2.0)
