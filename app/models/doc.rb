@@ -1,7 +1,8 @@
 class Doc
   include Mongoid::Document
 
-  field :name, type: String
-  field :desc, type: String
+  field :name
+  field :desc
+  field :expires, type: DateTime
 
 end
