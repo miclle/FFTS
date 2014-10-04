@@ -12,5 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+
+//= require utf8_encode
+//= require base64_encode
+
+//= require helper
+
+//= require plupload/moxie
+//= require plupload/plupload.full.min
+//= require plupload/i18n/zh_CN
