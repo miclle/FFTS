@@ -11,7 +11,7 @@ html, body{
 body {
   overflow: hidden;
   // background: #485b6e;
-  background: #bdd5cd;
+  // background: #bdd5cd;
 }
 
 #pageWrap {
@@ -24,19 +24,12 @@ body {
   text-align: center;
 }
 
-#counter{
+#loader{
+  width: 256px;
+  height: 256px;
+  margin: -128px 0 0 -128px;
   position: fixed;
-  top: 0;
-  right: 0;
-  color: #34495e;
-  font-size: 96px;
-}
-
-.road{
-  width: 96px;
-  height: 290px;
-  background: url(asset_path('road.png'));
-  position: fixed;
-  bottom: 0;
+  top: 50%;
   left: 50%;
+  cursor: pointer;
 }

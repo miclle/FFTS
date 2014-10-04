@@ -21,3 +21,5 @@
 //= require plupload/moxie
 //= require plupload/plupload.full.min
 //= require plupload/i18n/zh_CN
+
+//= require jquery.percentageloader-0.1
