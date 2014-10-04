@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :docs, :path => :file, :only => [:show, :destroy]
+  resources :docs, :path => :file, :only => [:show, :destroy] do
+    post :upload, :on => :collection
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
