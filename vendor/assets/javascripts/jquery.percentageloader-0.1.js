@@ -56,8 +56,7 @@ see the file license.txt that was included with the plugin bundle.
         outerDiv = document.createElement('div');
         outerDiv.style.width = settings.width + 'px';
         outerDiv.style.height = settings.height + 'px';
-        outerDiv.style.position = 'relative';
-        outerDiv.className = 'outer';
+        outerDiv.className = 'loader-outer';
 
         $(this).append(outerDiv);
 
@@ -72,20 +71,9 @@ see the file license.txt that was included with the plugin bundle.
          * fonts as it is hard to guarantee when they become available
          * with differences between browsers. DOM is a safer bet here */
         percentageText = document.createElement('div');
-        percentageText.style.width = (settings.width.toString() - 2) + 'px';
-        percentageText.style.textAlign = 'center';
-        percentageText.style.height = '50px';
-        percentageText.style.left = 0;
-        percentageText.style.position = 'absolute';
         percentageText.className = 'percentage-text';
 
         valueText = document.createElement('div');
-        valueText.style.width = (settings.width - 2).toString() + 'px';
-        valueText.style.textAlign = 'center';
-        valueText.style.height = '0px';
-        valueText.style.overflow = 'hidden';
-        valueText.style.left = 0;
-        valueText.style.position = 'absolute';
         valueText.className = 'value-text';
 
         /* Add the new dom elements to the containing div */
@@ -257,9 +245,7 @@ see the file license.txt that was included with the plugin bundle.
                 fontSize = cX / 2;
 
                 percentageText.style.top = ((settings.height / 2) - (fontSize / 2)).toString() + 'px';
-                percentageText.style.color = '#80a9c8';
-                percentageText.style.font = fontSize.toString() + 'px BebasNeueRegular';
-                percentageText.style.textShadow = '0 1px 1px #FFFFFF';
+                percentageText.style.fontSize = fontSize.toString() + 'px';
 
                 /* Calculate the text for the given percentage */
                 string = (progress * 100.0).toFixed(0) + '%';
@@ -268,10 +254,8 @@ see the file license.txt that was included with the plugin bundle.
 
                 /* Calculate font and placement of small 'value' text */
                 smallSize = cX / 5.5;
-                valueText.style.color = '#80a9c8';
-                valueText.style.font = smallSize.toString() + 'px BebasNeueRegular';
+                valueText.style.fontSize = smallSize.toString() + 'px';
                 valueText.style.height = smallSize.toString() + 'px';
-                valueText.style.textShadow = 'None';
 
                 /* Ugly vertical align calculations - fit into bottom ring.
                  * The bottom ring occupes 1/6 of the diameter of the circle */

@@ -53,3 +53,28 @@ body {
    -o-user-select: none;
    user-select: none;
 }
+
+.loader-outer{
+  position: relative;
+  font-family: BebasNeueRegular;
+
+  .percentage-text,
+  .value-text{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    color: #80a9c8;
+    color: rgb(128, 169, 200);
+  }
+
+  .percentage-text{
+    height: 50px;
+    text-shadow: rgb(255, 255, 255) 0px 1px 1px;
+  }
+
+  .value-text{
+    overflow: hidden;
+    text-shadow: none;
+  }
+}
