@@ -57,6 +57,7 @@ see the file license.txt that was included with the plugin bundle.
         outerDiv.style.width = settings.width + 'px';
         outerDiv.style.height = settings.height + 'px';
         outerDiv.style.position = 'relative';
+        outerDiv.className = 'outer';
 
         $(this).append(outerDiv);
 
@@ -76,6 +77,7 @@ see the file license.txt that was included with the plugin bundle.
         percentageText.style.height = '50px';
         percentageText.style.left = 0;
         percentageText.style.position = 'absolute';
+        percentageText.className = 'percentage-text';
 
         valueText = document.createElement('div');
         valueText.style.width = (settings.width - 2).toString() + 'px';
@@ -84,6 +86,7 @@ see the file license.txt that was included with the plugin bundle.
         valueText.style.overflow = 'hidden';
         valueText.style.left = 0;
         valueText.style.position = 'absolute';
+        valueText.className = 'value-text';
 
         /* Add the new dom elements to the containing div */
         outerDiv.appendChild(percentageText);
