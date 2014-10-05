@@ -32,7 +32,7 @@ see the file license.txt that was included with the plugin bundle.
 		});
      */
     $.fn.percentageLoader = function (params) {
-        var settings, canvas, percentageText, valueText, items, i, item, selectors, s, ctx, progress,
+        var settings, canvas, percentageText, valueText, i, item, selectors, s, ctx, progress,
             value, cX, cY, lingrad, innerGrad, tubeGrad, innerRadius, innerBarRadius, outerBarRadius,
             radius, startAngle, endAngle, counterClockwise, completeAngle, setProgress, setValue,
             applyAngle, drawLoader, clipValue, outerDiv;
@@ -84,22 +84,6 @@ see the file license.txt that was included with the plugin bundle.
         valueText.style.overflow = 'hidden';
         valueText.style.left = 0;
         valueText.style.position = 'absolute';
-
-        /* Force text items to not allow selection */
-        items = [valueText, percentageText];
-        for (i  = 0; i < items.length; i += 1) {
-            item = items[i];
-            selectors = [
-                '-webkit-user-select',
-                '-khtml-user-select',
-                '-moz-user-select',
-                '-o-user-select',
-                'user-select'];
-
-            for (s = 0; s < selectors.length; s += 1) {
-                $(item).css(selectors[s], 'none');
-            }
-        }
 
         /* Add the new dom elements to the containing div */
         outerDiv.appendChild(percentageText);
