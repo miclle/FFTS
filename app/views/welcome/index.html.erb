@@ -1,12 +1,5 @@
-
 <div id="pagewrap">
-
-  <div id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</div>
-
-  <pre id="console"></pre>
-
   <div id="loader"></div>
-
 </div>
 
  <script>
@@ -21,36 +14,7 @@
       }
     });
 
-    var loaderRunning = false;
-    $("#animateButton").click(function() {
-      if (loaderRunning) {
-        return;
-      }
-      loaderRunning = true;
-      $loader.setProgress(0);
-      $loader.setValue('0kb');
-      var kb = 0;
-      var totalKb = 999;
-
-      var animateFunc = function() {
-        kb += 17;
-        $loader.setProgress(kb / totalKb);
-        $loader.setValue(kb.toString() + 'kb');
-
-        if (kb < totalKb) {
-          setTimeout(animateFunc, 25);
-        } else {
-          loaderRunning = false;
-        }
-      }
-
-      setTimeout(animateFunc, 25);
-
-    });
-
-
     // Custom example logic
-
     var uploader = new plupload.Uploader({
       runtimes : 'html5', //,flash,silverlight,html4
       browse_button : 'loader', // you can pass in id...
@@ -62,21 +26,13 @@
       filters : {
         // max_file_size : '10mb'
       },
-      // // Flash settings
-      // flash_swf_url : '<%= asset_path "Moxie.swf" %>',
-      // // Silverlight settings
-      // silverlight_xap_url : '<%= asset_path "Moxie.xap" %>',
-
       multipart_params: {
         token: '<%= @uptoken -%>'
-      },
-
-      init: {
       }
     });
 
     uploader.bind("PostInit", function() {
-      document.getElementById('filelist').innerHTML = '';
+
     });
 
     uploader.bind("FilesAdded", function(up, files) {
@@ -94,7 +50,7 @@
     });
 
     uploader.bind("Error", function(up, err) {
-      document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
+      alert("Error #" + err.code + ":\n" + err.message);
     });
 
     uploader.init();

@@ -12,6 +12,14 @@ body {
   overflow: hidden;
   // background: #485b6e;
   // background: #bdd5cd;
+  background-image: url(asset_path('bg-main.jpg'));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #pageWrap {
@@ -32,4 +40,11 @@ body {
   top: 45%;
   left: 50%;
   cursor: pointer;
+  text-transform: Uppercase;
+
+  // -webkit-box-reflect: below 10px;
+  -webkit-box-reflect: below 1px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.5, transparent), to(rgba(3,3,3,.8)));
+  // background: -webkit-linear-gradient(top, rgba(174,188,191,1) 0%,rgba(110,119,116,1) 50%,rgba(10,14,10,1) 51%,rgba(10,8,9,1) 100%);
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
 }
