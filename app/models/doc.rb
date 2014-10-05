@@ -3,6 +3,9 @@ class Doc
 
   field :name
   field :desc
-  field :expires, type: DateTime
+  field :hash
+  field :key
+  field :dntoken
+  field :deadline, type: Integer
 
 end

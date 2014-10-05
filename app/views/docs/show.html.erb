@@ -1,2 +1,1 @@
-<h1>Docs#show</h1>
-<p>Find me in app/views/docs/show.html.erb</p>
+<%= link_to "", @download_url, :id => "downloader", :download => @download_url, :data => {:deadline => @doc.deadline, :fsize => @fsize} %>

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
+  root 'docs#new'
 
-  resources :docs, :path => :file, :only => [:show, :create, :destroy]
+  get '/:id' => 'docs#show', :as => :doc_root
+
+  resources :docs, :path => ":file", :only => [:show, :new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -23,3 +23,91 @@
 //= require plupload/i18n/zh_CN
 
 //= require jquery.percentageloader-0.1
+
+$(function() {
+
+
+  // Upload page
+  var $loader = $("#loader").percentageLoader({
+    width: 256,
+    height: 256,
+    controllable : false,
+    progress : 0,
+    onProgressUpdate : function(val) {
+      $loader.setValue(Math.round(val * 100.0));
+    }
+  });
+
+  if($loader.size()){
+    var uploader = new plupload.Uploader({
+      runtimes : 'html5', //,flash,silverlight,html4
+      browse_button : 'loader', // you can pass in id...
+      // drop_element: 'body',
+      multi_selection: false,
+      // container: document.getElementById('container'), // ... or DOM Element itself
+      url : "http://upload.qiniu.com/",
+
+      filters : {
+        // max_file_size : '10mb'
+      },
+      multipart_params: {
+        token: $('#uptoken').val()
+      }
+    });
+
+    uploader.bind("FilesAdded", function(up, files) {
+      $loader.setValue(plupload.formatSize(files.slice(-1)[0].size));
+      up.start();
+    });
+
+    // Fires when a file is successfully uploaded.
+    uploader.bind("FileUploaded", function(up, file, result) {
+      var response = jQuery.parseJSON(result.response);
+      $.post( "/file", { hash: response.hash, key: response.key }, function(url){
+        // similar behavior as an HTTP redirect
+        window.location.replace(url);
+        // similar behavior as clicking on a link
+        // window.location.href = url;
+      });
+    });
+
+    uploader.bind("UploadProgress", function(up, file) {
+      $loader.setProgress(file.percent / 100);
+    });
+
+    uploader.bind("Error", function(up, err) {
+      alert("Error #" + err.code + ":\n" + err.message);
+    });
+
+    uploader.init();
+  }
+
+
+  // Download page
+  var $downloader = $("#downloader").percentageLoader({
+    width: 256,
+    height: 256,
+    controllable : false,
+    progress : 0,
+    onProgressUpdate : function(val) {
+      $downloader.setValue(Math.round(val * 100.0));
+    }
+  });
+
+  if($downloader.size()){
+    var deadline = $downloader.data('deadline');
+    var fsize = $downloader.data('fsize')
+
+    $downloader.setValue(plupload.formatSize(fsize));
+
+    var interval = setInterval(function(){
+      var current = new Date();
+
+      var percent = (deadline - current.getTime()/1000) / (60 * 30);
+          percent = Math.round(percent*100)/100
+
+      $downloader.setProgress( percent );
+    }, 1000);
+  }
+
+});
