@@ -32,10 +32,7 @@ $(function() {
     width: 256,
     height: 256,
     controllable : false,
-    progress : 0,
-    onProgressUpdate : function(val) {
-      $loader.setValue(Math.round(val * 100.0));
-    }
+    progress : 0
   });
 
   if($loader.size()){
@@ -88,10 +85,7 @@ $(function() {
     width: 256,
     height: 256,
     controllable : false,
-    progress : 0,
-    onProgressUpdate : function(val) {
-      $downloader.setValue(Math.round(val * 100.0));
-    }
+    progress : 100
   });
 
   if($downloader.size()){
@@ -100,14 +94,16 @@ $(function() {
 
     $downloader.setValue(plupload.formatSize(fsize));
 
-    var interval = setInterval(function(){
+    var updateDownloaderProgress = function(){
       var current = new Date();
-
       var percent = (deadline - current.getTime()/1000) / (60 * 30);
           percent = Math.round(percent*100)/100
-
       $downloader.setProgress( percent );
-    }, 1000);
+    }
+
+    updateDownloaderProgress();
+
+    var interval = setInterval(updateDownloaderProgress, 1000);
   }
 
 });
