@@ -22,7 +22,7 @@
 //= require plupload/plupload.full.min
 //= require plupload/i18n/zh_CN
 
-//= require jquery.percentageloader-0.1
+//= require percentageloader
 
 $(function() {
 
