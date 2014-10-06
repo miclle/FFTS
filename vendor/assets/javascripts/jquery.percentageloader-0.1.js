@@ -56,7 +56,7 @@ see the file license.txt that was included with the plugin bundle.
         outerDiv = document.createElement('div');
         outerDiv.style.width = settings.width + 'px';
         outerDiv.style.height = settings.height + 'px';
-        outerDiv.className = 'loader-outer';
+        outerDiv.className = 'percentage-loader';
 
         $(this).append(outerDiv);
 
