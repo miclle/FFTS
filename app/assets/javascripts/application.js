@@ -47,8 +47,9 @@ $(function() {
       url : "http://upload.qiniu.com/",
 
       filters : {
-        // max_file_size : '10mb'
+        max_file_size : '500mb'
       },
+
       multipart_params: {
         token: $('#uptoken').val()
       }
