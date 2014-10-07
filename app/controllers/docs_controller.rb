@@ -21,7 +21,7 @@ class DocsController < ApplicationController
   end
 
   def create
-    @doc = Doc.create(:hash => params[:hash], :key => params[:key], :deadline => Time.now.to_i + 60 * 30)
+    @doc = Doc.create(:hash => params[:hash], :key => params[:key], :deadline => Time.now.to_i + 60 * 60 * 1.5)
 
     render :json => doc_root_url(@doc).to_json
   end
