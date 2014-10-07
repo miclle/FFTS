@@ -1,1 +1,31 @@
-<%= link_to "", @download_url, :id => "downloader", :download => @download_url, :data => {:deadline => @doc.deadline, :fsize => @fsize} %>
+<script type="text/javascript">
+$(document).ready(function(){
+  new Counter('downloader', {
+    size: 420,
+    secondsColor : "#ffdc50",
+    secondsGlow  : "#ffdc50",
+
+    // startDate   : <%= @doc.created_at.to_i -%>,
+    // endDate     : "<%= @doc.deadline -%>",
+    // now         : (new Date()).getTime()/1000
+
+    startDate   : "1397364400",
+    endDate     : "1397364500",
+    now         : "1397364140"
+
+  });
+});
+</script>
+
+<%= link_to @download_url, :class => "counter", :id => "downloader", :download => @download_url, :data => {:deadline => @doc.deadline, :fsize => @fsize} do %>
+
+  <div class="text">
+    <p>You can share and download this file</p>
+    <span>This file is about to expire</span>
+  </div>
+
+  <div class="timer">
+    <p><span class="days">0</span> days <span class="hrs">0</span> hours <span class="mins">0</span> minutes and <span class="secs">0</span> seconds</p>
+  </div>
+
+<% end %>

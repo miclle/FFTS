@@ -22,7 +22,9 @@
 //= require plupload/plupload.full.min
 //= require plupload/i18n/zh_CN
 
-//= require percentageloader
+//= require jquery.percentageloader-0.1
+
+//= require counter
 
 $(function() {
 
@@ -77,33 +79,6 @@ $(function() {
     });
 
     uploader.init();
-  }
-
-
-  // Download page
-  var $downloader = $("#downloader").percentageLoader({
-    width: 256,
-    height: 256,
-    controllable : false,
-    progress : 100
-  });
-
-  if($downloader.size()){
-    var deadline = $downloader.data('deadline');
-    var fsize = $downloader.data('fsize')
-
-    $downloader.setValue(plupload.formatSize(fsize));
-
-    var updateDownloaderProgress = function(){
-      var current = new Date();
-      var percent = (deadline - current.getTime()/1000) / (60 * 30);
-          percent = Math.round(percent*100)/100
-      $downloader.setProgress( percent );
-    }
-
-    updateDownloaderProgress();
-
-    var interval = setInterval(updateDownloaderProgress, 1000);
   }
 
 });

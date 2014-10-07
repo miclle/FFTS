@@ -9,16 +9,21 @@ html, body{
 
 body {
   overflow: hidden;
-  // background: #485b6e;
-  // background: #bdd5cd;
-  background-image: url(asset_path('bg-main.jpg'));
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  &.docs.new{
+    background-image: url(asset_path('bg-main.jpg'));
+    background-repeat: repeat-x;
+    background-position: center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  &.docs.show{
+    background-color: #000;
+    background-image: url(asset_path('bg-main-black.png'));
+  }
 }
 
 #pageWrap {
@@ -31,7 +36,7 @@ body {
   text-align: center;
 }
 
-#loader, #downloader{
+#loader{
   width: 256px;
   height: 256px;
   margin: -128px 0 0 -128px;
@@ -76,5 +81,101 @@ body {
   .value-text{
     overflow: hidden;
     text-shadow: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+#downloader{
+  width:420px;
+  height:420px;
+  margin: -210px 0 0 -210px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  text-decoration: none;
+  cursor: pointer;
+  // text-transform: Uppercase;
+
+  // -webkit-box-reflect: below 1px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.5, transparent), to(rgba(3,3,3,.8)));
+
+  // background: -webkit-linear-gradient(top, rgba(174,188,191,1) 0%,rgba(110,119,116,1) 50%,rgba(10,14,10,1) 51%,rgba(10,8,9,1) 100%);
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+
+   // -webkit-user-select: none;
+   // -khtml-user-select: none;
+   // -moz-user-select: none;
+   // -o-user-select: none;
+   // user-select: none;
+}
+
+.counter {
+  width: 420px;
+  height: 420px;
+  margin:0 auto;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+
+  canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  p, span{
+    font-family:Georgia, "Times New Roman", Times, serif;
+    color:#FFF;
+    padding: 0;
+    margin: 0;
+  }
+
+  .text, .timer{
+    z-index: 2;
+  }
+
+  .text {
+    width: 100%;
+    padding: 0 20px;
+    position: absolute;
+    top: 200px;
+    box-sizing: border-box;
+
+    p {
+      font-size:20px;
+      line-height:30px;
+    }
+
+    span {
+      color:#999;
+      font-style:italic;
+      line-height:30px;
+      font-size:18px;
+    }
+  }
+
+  .timer {
+    width: 100%;
+    padding: 0 20px;
+    position: absolute;
+    bottom: 130px;
+    box-sizing: border-box;
+    p {
+      color:#616161;
+      font-size:16px;
+      text-align:center;
+      font-style:italic;
+    }
+    span {
+      color:#FFF;
+    }
   }
 }
