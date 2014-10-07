@@ -5,14 +5,9 @@ $(document).ready(function(){
     secondsColor : "#ffdc50",
     secondsGlow  : "#ffdc50",
 
-    // startDate   : <%= @doc.created_at.to_i -%>,
-    // endDate     : "<%= @doc.deadline -%>",
-    // now         : (new Date()).getTime()/1000
-
-    startDate   : "1397364400",
-    endDate     : "1397364500",
-    now         : "1397364140"
-
+    startDate   : <%= @doc.created_at.to_i -%>,
+    endDate     : "<%= @doc.deadline -%>",
+    now         : (new Date()).getTime()/1000
   });
 });
 </script>

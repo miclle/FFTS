@@ -22,8 +22,6 @@ class Counter
     @glob.seconds = 60 - Math.floor((@glob.endDate - @glob.now) % 86400 % 3600 % 60)
     @glob.secLeft = Math.floor(@glob.endDate - @glob.now)
 
-    return if (@glob.now >= @glob.endDate)
-
     @meter()
     @start()
 
@@ -39,23 +37,47 @@ class Counter
     ctx.clearRect(0, 0, @canvas.width, @canvas.height)
 
     ctx.beginPath()
-
-    ctx.strokeStyle = @glob.secondsColor
-
-    ctx.shadowBlur    = 10
-    ctx.shadowOffsetX = 0
-    ctx.shadowOffsetY = 0
-    ctx.shadowColor   = @glob.secondsGlow
-
-    degs = (360 / Math.floor(@glob.endDate - @glob.startDate)) * (Math.floor(@glob.endDate - @glob.startDate) - @glob.secLeft)
-    ctx.arc(@canvas.width/2, @canvas.height/2, 390/2, @deg(0), @deg(degs))
+    ctx.arc(@glob.size/2, @glob.size/2, @glob.size/2-10, 0, Math.PI*2, true)
     ctx.lineWidth = 5
+    ctx.strokeStyle = "#1C1C1C"
+    ctx.shadowBlur  = 0
     ctx.stroke()
+    ctx.closePath()
 
-    $(".timer .secs").text(60 - @glob.seconds)
-    $(".timer .mins").text(60 - @glob.minutes)
-    $(".timer .hrs").text(24 - @glob.hours)
-    $(".timer .days").text(@glob.days)
+    ctx.beginPath()
+    ctx.arc(@glob.size/2, @glob.size/2, @glob.size/2-6, 0, Math.PI*2, true)
+    ctx.lineWidth = 1
+    ctx.strokeStyle = "#000000"
+    ctx.shadowBlur  = 0
+    ctx.stroke()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.arc(@glob.size/2, @glob.size/2, @glob.size/2-13, 0, Math.PI*2, true)
+    ctx.lineWidth = 1
+    ctx.strokeStyle = "#444444"
+    ctx.shadowBlur  = 0
+    ctx.stroke()
+    ctx.closePath()
+
+    if (@glob.now < @glob.endDate)
+      ctx.beginPath()
+      ctx.strokeStyle = @glob.secondsColor
+      ctx.shadowBlur    = 10
+      ctx.shadowOffsetX = 0
+      ctx.shadowOffsetY = 0
+      ctx.shadowColor   = @glob.secondsGlow
+
+      degs = (360 / Math.floor(@glob.endDate - @glob.startDate)) * (Math.floor(@glob.endDate - @glob.startDate) - @glob.secLeft)
+      ctx.arc(@canvas.width/2, @canvas.height/2, @glob.size/2-10, @deg(0), @deg(degs))
+      ctx.lineWidth = 5
+      ctx.stroke()
+      ctx.closePath();
+
+      $(".timer .secs").text(60 - @glob.seconds)
+      $(".timer .mins").text(60 - @glob.minutes)
+      $(".timer .hrs").text(24 - @glob.hours)
+      $(".timer .days").text(@glob.days)
 
   start: =>
     cdown = setInterval((=>
