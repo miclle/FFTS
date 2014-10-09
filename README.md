@@ -1,7 +1,7 @@
 FFTS
 ====
 
-Fast File Transfer Station
+Fast File Transfer Station : http://ffts.io/
 
 
 ## Branch
@@ -20,4 +20,4 @@ http://widgets.better2web.com/loader/
 
 #License
 
-Copyright (c) 2013-2014 Miclle
+Copyright (c) 2014 Miclle
