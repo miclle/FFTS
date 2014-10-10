@@ -3,30 +3,20 @@
 
 @import "bootstrap/normalize";
 
+@import "chronograph";
+
 html, body{
   height: 100%;
 }
 
 body {
   overflow: hidden;
-  &.docs.new{
-    background-image: url(asset_path('bg-main.jpg'));
-    background-repeat: repeat-x;
-    background-position: center;
-    background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-
-  &.docs.show{
-    background-color: #000;
-    background-image: url(asset_path('bg-main-black.png'));
-  }
+  background-color: #000;
+  background-image: url(asset_path('bg-main-black.png'));
 }
 
-#pageWrap {
+#pagewrap {
+  // display: none;
   width: 100%;
   overflow: hidden;
 }

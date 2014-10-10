@@ -25,6 +25,7 @@
 //= require jquery.percentageloader-0.1
 
 //= require counter
+//= require chronograph
 
 $(function() {
 
