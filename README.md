@@ -9,13 +9,15 @@ https://github.com/miclle/mice
 
 ## Requirements
 
-Rails 4.2.0.beta2  
-MongoDB 2.6.4  
-unicorn  
+Rails 4.2.0.beta2
+MongoDB 2.6.4
+unicorn
 
 
 ##Loader
 http://widgets.better2web.com/loader/
+
+http://codepen.io/ninjascribble/pen/rHwkK
 
 
 #License
