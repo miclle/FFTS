@@ -112,6 +112,13 @@ body {
   text-decoration: none;
   position: relative;
 
+  #qrcode{
+    margin-left: -60px;
+    position: absolute;
+    left: 50%;
+    top: 50px;
+  }
+
   canvas{
     position: absolute;
     top: 0;

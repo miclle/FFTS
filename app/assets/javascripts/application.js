@@ -22,6 +22,8 @@
 //= require plupload/plupload.full.min
 //= require plupload/i18n/zh_CN
 
+//= require qrcode
+
 //= require counter
 //= require chronograph
 

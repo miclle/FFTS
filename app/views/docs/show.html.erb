@@ -8,10 +8,13 @@ $(document).ready(function(){
     endDate     : <%= @doc.deadline -%>,
     now         : (new Date()).getTime()/1000
   });
+
+  new QRCode(document.getElementById("qrcode"), {text: "<%=doc_root_url(@doc)-%>",width: 120,height: 120});
 });
 </script>
 
 <%= link_to @download_url, :class => "counter", :id => "downloader", :download => @download_url, :data => {:deadline => @doc.deadline, :fsize => @fsize} do %>
+  <div id="qrcode"></div>
   <div class="text">
     <p>You can share and download this file</p>
     <span>This file is about to expire</span>
