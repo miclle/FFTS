@@ -9,7 +9,7 @@ html, body{
 
 body {
   overflow: hidden;
-  font-family:Georgia, "Times New Roman", Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   background-color: #000;
   background-image: url(asset_path('bg-main-black.png'));
 }
@@ -73,12 +73,6 @@ body {
       font-size: 24px;
       line-height: 42px;
       text-transform: Uppercase;
-    }
-
-    .copy{
-      line-height: 14px;
-      color: #444;
-      font-size: 12px;
     }
   }
 }

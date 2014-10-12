@@ -11,11 +11,11 @@ class Chronograph
 
 
   init: ->
-    @canvas = document.createElement('canvas');
+    @canvas = document.createElement('canvas')
     @canvas.setAttribute('width', @settings.size)
     @canvas.setAttribute('height', @settings.size)
 
-    @element.appendChild(@canvas);
+    @element.appendChild(@canvas)
     @dashboard()
 
 
@@ -49,7 +49,7 @@ class Chronograph
       ctx.globalAlpha = 0.4
       ctx.shadowBlur  = 0
       ctx.stroke()
-      ctx.closePath();
+      ctx.closePath()
     )()
 
 
@@ -72,7 +72,7 @@ class Chronograph
       ctx.globalAlpha = 0.4
       ctx.shadowBlur  = 0
       ctx.stroke()
-      ctx.closePath();
+      ctx.closePath()
     )()
 
 
@@ -99,8 +99,17 @@ class Chronograph
     ctx.shadowColor   = '#ffdc50'
 
     ctx.stroke()
-    ctx.closePath();
+    ctx.closePath()
 
+    ctx.beginPath()
+    ctx.shadowBlur  = 0
+    ctx.globalAlpha = 1
+    ctx.font = "12px BebasNeueRegular"
+    ctx.textAlign = "center"
+    ctx.fillStyle = "#444"
+    ctx.fillText("Fast File Transfer Station", @settings.size/2, @settings.size - 90)
+    ctx.fillText("@FFTS.IO", @settings.size/2, @settings.size - 72)
+    ctx.closePath()
 
   run: ->
     i = 0

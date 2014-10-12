@@ -73,6 +73,15 @@ class Counter
     ctx.stroke()
     ctx.closePath()
 
+    ctx.beginPath()
+    ctx.font = "12px BebasNeueRegular"
+    ctx.textAlign = "center"
+    ctx.fillStyle = "#444"
+    ctx.shadowBlur  = 0
+    ctx.fillText("Fast File Transfer Station", @settings.size/2, @settings.size - 60)
+    ctx.fillText("@FFTS.IO", @settings.size/2, @settings.size - 42)
+    ctx.closePath()
+
     if (@settings.now < @settings.endDate)
       ctx.beginPath()
       ctx.strokeStyle = @settings.secondsColor
