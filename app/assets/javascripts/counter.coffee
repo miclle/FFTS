@@ -90,7 +90,7 @@ class Counter
       ctx.shadowOffsetY = 0
       ctx.shadowColor   = @settings.secondsGlow
 
-      degs = (360 / Math.floor(@settings.endDate - @settings.startDate)) * (Math.floor(@settings.endDate - @settings.startDate) - @settings.secLeft)
+      degs = 360 - (360 / Math.floor(@settings.endDate - @settings.startDate)) * (Math.floor(@settings.endDate - @settings.startDate) - @settings.secLeft)
       ctx.arc(@canvas.width/2, @canvas.height/2, @settings.size/2-10, @deg(0), @deg(degs))
       ctx.lineWidth = 5
       ctx.stroke()
