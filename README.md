@@ -15,8 +15,6 @@ unicorn
 
 
 ##Loader
-http://widgets.better2web.com/loader/
-
 http://codepen.io/ninjascribble/pen/rHwkK
 
 
