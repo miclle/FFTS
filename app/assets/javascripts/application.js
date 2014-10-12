@@ -49,8 +49,8 @@ $(document).ready(function(){
 
     uploader.bind("FilesAdded", function(up, files) {
       $('#chronograph .size').text(plupload.formatSize(files.slice(-1)[0].size));
-      $('#chronograph .slogan').text('Uploading ...');
-      $('#chronograph .intro').text('Your file has:');
+      $('#chronograph .slogan').text('');
+      $('#chronograph .intro').text('Your file is being uploaded, there');
       up.start();
       chronograph.run();
     });
