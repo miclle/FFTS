@@ -22,23 +22,14 @@
 //= require plupload/plupload.full.min
 //= require plupload/i18n/zh_CN
 
-//= require jquery.percentageloader-0.1
-
 //= require counter
 //= require chronograph
 
-$(function() {
-
-
-  // Upload page
-  var $loader = $("#loader").percentageLoader({
-    width: 256,
-    height: 256,
-    controllable : false,
-    progress : 0
-  });
-
+$(document).ready(function(){
+  var $loader = $("#loader");
   if($loader.size()){
+    var chronograph = new Chronograph('chronograph', { size: 420 });
+
     var uploader = new plupload.Uploader({
       runtimes : 'html5', //,flash,silverlight,html4
       browse_button : 'loader', // you can pass in id...
@@ -57,8 +48,11 @@ $(function() {
     });
 
     uploader.bind("FilesAdded", function(up, files) {
-      $loader.setValue(plupload.formatSize(files.slice(-1)[0].size));
+      $('#chronograph .size').text(plupload.formatSize(files.slice(-1)[0].size));
+      $('#chronograph .slogan').text('Uploading ...');
+      $('#chronograph .intro').text('Your file has:');
       up.start();
+      chronograph.run();
     });
 
     // Fires when a file is successfully uploaded.
@@ -73,7 +67,8 @@ $(function() {
     });
 
     uploader.bind("UploadProgress", function(up, file) {
-      $loader.setProgress(file.percent / 100);
+      chronograph.second = file.percent / 100 * 360
+      $('#chronograph .percent').text(file.percent + '%');
     });
 
     uploader.bind("Error", function(up, err) {
@@ -82,5 +77,4 @@ $(function() {
 
     uploader.init();
   }
-
 });

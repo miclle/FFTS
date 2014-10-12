@@ -3,41 +3,27 @@
 
 @import "bootstrap/normalize";
 
-@import "chronograph";
-
 html, body{
   height: 100%;
 }
 
 body {
   overflow: hidden;
+  font-family:Georgia, "Times New Roman", Times, serif;
   background-color: #000;
   background-image: url(asset_path('bg-main-black.png'));
 }
 
-#pagewrap {
-  // display: none;
-  width: 100%;
-  overflow: hidden;
-}
-
-#upload-wrap{
-  margin: 0 auto;
-  text-align: center;
-}
-
 #loader{
-  width: 256px;
-  height: 256px;
-  margin: -128px 0 0 -128px;
-  position: fixed;
+  width: 420px;
+  height: 420px;
+  margin: -210px 0 0 -210px;
   top: 45%;
   left: 50%;
   cursor: pointer;
-  text-transform: Uppercase;
 
   // -webkit-box-reflect: below 10px;
-  -webkit-box-reflect: below 1px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.5, transparent), to(rgba(3,3,3,.8)));
+  // -webkit-box-reflect: below 1px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.5, transparent), to(rgba(3,3,3,.8)));
   // background: -webkit-linear-gradient(top, rgba(174,188,191,1) 0%,rgba(110,119,116,1) 50%,rgba(10,14,10,1) 51%,rgba(10,8,9,1) 100%);
   // -webkit-background-clip: text;
   // -webkit-text-fill-color: transparent;
@@ -49,36 +35,52 @@ body {
    user-select: none;
 }
 
-.percentage-loader{
+.chronograph{
   position: relative;
   font-family: BebasNeueRegular;
+  line-height: 30px;
+  color: #999;
 
-  .percentage-text,
-  .value-text{
+  canvas{ position: relative; z-index: 1; }
+  h2, p{ margin: 0; padding: 0;}
+  .text{
     width: 100%;
-    text-align: center;
     position: absolute;
-    left: 0;
-    color: #80a9c8;
-    color: rgb(128, 169, 200);
-  }
+    text-align: center;
+    z-index: 2;
 
-  .percentage-text{
-    height: 50px;
-    text-shadow: rgb(255, 255, 255) 0px 1px 1px;
-  }
+    .percent{
+      min-height: 50px;
+      margin-top: 110px;
+      font-size: 84px;
+      line-height: 85px;
+      color: #FFF;
+    }
 
-  .value-text{
-    overflow: hidden;
-    text-shadow: none;
+    .slogan{
+      line-height: 42px;
+      color: #FFF;
+    }
+
+    .intro{
+      font-size: 18px;
+      font-style: italic;
+    }
+
+    .size{
+      min-height: 36px;
+      font-size: 24px;
+      line-height: 42px;
+      text-transform: Uppercase;
+    }
+
+    .copy{
+      line-height: 14px;
+      color: #444;
+      font-size: 12px;
+    }
   }
 }
-
-
-
-
-
-
 
 
 
@@ -123,7 +125,6 @@ body {
   }
 
   p, span{
-    font-family:Georgia, "Times New Roman", Times, serif;
     color:#FFF;
     padding: 0;
     margin: 0;

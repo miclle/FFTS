@@ -112,4 +112,3 @@ class Chronograph
 
 
 window.Chronograph = Chronograph
-

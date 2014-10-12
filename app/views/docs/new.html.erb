@@ -1,16 +1,12 @@
-<script type="text/javascript">
-$(document).ready(function(){
-  new Chronograph('chronograph', {
-    size: 420
-  });
-});
-</script>
-
-<div class="chronograph" id="chronograph"></div>
-
-<!--
-<div id="pagewrap">
+<div id="loader">
   <%= hidden_field_tag 'uptoken', @uptoken %>
-  <div id="loader"></div>
+  <div class="chronograph" id="chronograph">
+    <div class="text">
+      <div class="percent"></div>
+      <h2 class="slogan">Click here!</h2>
+      <p class="intro">You can upload and share your files.</p>
+      <div class="size"></div>
+      <div class="copy">@FFTS.IO <br>Fast File Transfer Station</div>
+    </div>
+  </div>
 </div>
--->
