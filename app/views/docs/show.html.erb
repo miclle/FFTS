@@ -1,19 +1,4 @@
-<script type="text/javascript">
-$(document).ready(function(){
-  new Counter('downloader', {
-    size: 420,
-    secondsColor : "#ffdc50",
-    secondsGlow  : "#ffdc50",
-    startDate   : <%= @doc.created_at.to_i -%>,
-    endDate     : <%= @doc.deadline -%>,
-    now         : (new Date()).getTime()/1000
-  });
-
-  new QRCode(document.getElementById("qrcode"), {text: "<%=doc_root_url(@doc)-%>",width: 120,height: 120});
-});
-</script>
-
-<%= link_to @download_url, :class => "counter", :id => "downloader", :download => @download_url, :data => {:deadline => @doc.deadline, :fsize => @fsize} do %>
+<%= link_to @download_url, :class => "counter", :id => "downloader", :download => @download_url, :data => {:start => @doc.created_at.to_i, :deadline => @doc.deadline, :fsize => @fsize, :host => doc_root_url(@doc)} do %>
   <div id="qrcode"></div>
   <div class="text">
     <p>You can share and download this file</p>

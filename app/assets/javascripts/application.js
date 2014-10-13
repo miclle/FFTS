@@ -79,4 +79,26 @@ $(document).ready(function(){
 
     uploader.init();
   }
+
+
+  var $downloader = $("#downloader");
+  if($downloader.size()){
+    new Counter('downloader', {
+      size: 420,
+      secondsColor : "#ffdc50",
+      secondsGlow  : "#ffdc50",
+      startDate   : $downloader.data('start'),
+      endDate     : $downloader.data('deadline'),
+      now         : (new Date()).getTime()/1000
+    });
+
+    new QRCode(document.getElementById("qrcode"), {
+      text: $downloader.data('host'),
+      width: 120,
+      height: 120,
+      colorDark : "#000000",
+      colorLight : "#ccc",
+      correctLevel : QRCode.CorrectLevel.M
+    });
+  }
 });
