@@ -1,5 +1,14 @@
 'use strict'
 
+###
+  @param  :
+    id: DOM id attribute
+    settings: Specify options in {}. May be on of size.
+  @example:
+    new Chronograph('chronograph', {
+      size: 420
+    });
+###
 class Chronograph
   constructor: (id, settings) ->
     @element = document.getElementById(id)
