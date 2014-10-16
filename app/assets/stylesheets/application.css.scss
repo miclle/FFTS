@@ -175,3 +175,11 @@ body {
 }
 
 #fork-me-on-github img{position: fixed; top: 0; right: 0; z-index: 999; border: 0;}
+
+@media (min-width: 320px) and (max-width: 479px)  {
+  #fork-me-on-github img{ width: 50px; }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  #fork-me-on-github img{ width: 80px; }
+}
