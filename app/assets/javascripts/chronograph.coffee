@@ -121,12 +121,15 @@ class Chronograph
     ctx.closePath()
 
   run: ->
+    # window.requestAnimationFrame: Must > IE10
+    # window.setImmediate: only IE10
+    # setInterval: delay minimum is 15.6ms(CPU 64 fps) ~= 16ms
     i = 0
     timer = setInterval((=>
       @millisecond = 0 if @millisecond >= 360
-      @millisecond = @millisecond + 1000 / Math.PI * 2 / 360
+      @millisecond = @millisecond + 360 / 1000 * 16
       @dashboard()
-    ), 1)
+    ), 16)
 
 
 window.Chronograph = Chronograph
